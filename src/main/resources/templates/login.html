@@ -1,0 +1,44 @@
+<html>
+	<head th:replace="~{base :: head}">
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<header>
+			<div th:replace="~{base :: logo}">
+			</div>
+		</header>
+		
+		<section>
+			<div class="container" style="width: 40%; margin-top: 5%">
+				<div th:replace="~{base :: titulo('Login')}">
+				</div>
+			</div>
+		</section>	
+		
+		<section>	
+			<div class="container" style="width: 40%; margin-bottom: 5%">
+				<div class="card">
+					<form th:action="@{/login}" method="post" class="card-body">
+						<div class="mb-3">
+							<label for="username" class="form-label">Usuario</label>
+							<input name="username" type="text" placeholder="nome do usuario" class="form-control">
+						</div>
+						<div class="mb-3">
+							<label for="password" class="form-label">Senha</label>
+							<input name="password" type="password" placeholder="senha do usuario" class="form-control">
+						</div>
+						<div>
+							<button type="submit" class="btn btn-success">Logar</button>
+							<a type="button" href="/home" class="btn btn-secondary">Cancelar</a>
+						</div>
+					</form>	
+				</div>
+			</div>
+		</section>
+		
+		<footer>
+			<div th:replace="~{base :: rodape}">
+			</div>
+		</footer>
+	</body>
+</html>

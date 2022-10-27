@@ -1,0 +1,49 @@
+<html>
+<head th:replace="~{base :: head}">
+<meta charset="UTF-8">
+</head>
+<body>
+	<header>
+		<div th:replace="~{base :: logo}"></div>
+	</header>
+
+	<section>
+		<div class="container">
+			<div th:replace="~{base :: titulo('Home')}"></div>
+
+			<div class="card mb-3">
+				<form sec:authorize="isAuthenticated()"
+					class="card-body d-flex mb-0" action="/home/pesquisa" method="post">
+					<button type="submit" class="btn btn-success me-2">Pesquisar</button>
+					<input type="search" name="nomePesquisa" class="form-control">
+				</form>
+			</div>
+			<div class="card">
+				<div class="card-body row align-items-center">
+					<div class="">
+						<a class="ms-0 btn btn-success btn-lg col-md-2"
+							href="/continente/america" role="button">America</a> <a
+							class="ms-5 btn btn-success btn-lg col-md-2"
+							href="/continente/europa" role="button">Europa</a> <a
+							class="ms-5 btn btn-success btn-lg col-md-2"
+							href="/continente/africa" role="button">Africa</a> <a
+							class="ms-5 btn btn-success btn-lg col-md-2"
+							href="/continente/oceania" role="button">Oceania</a> <a
+							class="ms-5 btn btn-success btn-lg col-md-2"
+							href="/continente/asia" role="button">Asia</a>
+					</div>
+				</div>
+			</div>
+			<div class="card mt-3" style="border-radius: 200px">
+					<div class="card-body">
+						<img class="" src="https://s2.glbimg.com/84qk6u6zGSphV2VBDDxnbHYUN6I=/620x350/e.glbimg.com/og/ed/f/original/2018/10/16/mapa1.jpg" style="border-radius: 200px; width: 100%">
+					</div>
+			</div>
+		</div>	
+	</section>
+
+	<footer>
+		<div th:replace="~{base :: rodape}"></div>
+	</footer>
+</body>
+</html>

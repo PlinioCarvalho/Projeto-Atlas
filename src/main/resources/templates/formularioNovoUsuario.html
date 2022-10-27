@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="~{base :: head}">
+</head>
+<body>
+	<header>
+		<div th:replace="~{base :: logo-cadastro-usuario}"></div>
+	</header>
+
+	<section>
+		<div class="container" style="width: 40%">
+			<div th:replace="~{base :: titulo('Cadastrar Usuario')}"></div>
+		</div>	
+	</section>	
+	
+	<section>
+		<div class="container" style="width: 40%">
+			<div class="card">
+				<form th:object="${requisicaoNovoUsuario}" class="card-body" action="/cadastrarUsuario/novo" method="post">
+					<div class="mb-3">
+						<label for="nome" class="form-label">Nome</label> 
+						<input name="nome" th:field="*{nome}" th:errorclass="is-invalid" class="form-control">
+						<div class="invalid-feedback" th:errors="*{nome}"></div>
+						<small class="form-text">Informe o nome do usuario</small>
+					</div>
+					<div class="mb-3">
+						<label for="email" class="form-label">Email</label> 
+						<input name="email" th:field="*{email}" th:errorclass="is-invalid" class="form-control">
+						<div class="invalid-feedback" th:errors="*{email}"></div>
+						<small class="form-text">Informe o email do usuario</small>
+					</div>
+					<div class="mb-3">
+						<label for="senha" class="form-label">Senha</label> 
+						<input type="password" name="senha" th:field="*{senha}" th:errorclass="is-invalid" class=form-control>
+						<div class="invalid-feedback" th:errors="*{senha}"></div>
+						<small class="form-text">Informe a senha do usuario</small>
+					</div>
+					<button type="submit" class="btn btn-success">Cadastrar</button>
+					<a type="button" href="/home" class="btn btn-secondary">Cancelar</a>
+				</form>
+			</div>
+		</div>
+	</section>
+	
+	<footer>
+		<div th:replace="~{base :: rodape}"></div>
+	</footer>	
+</body>
+</html>

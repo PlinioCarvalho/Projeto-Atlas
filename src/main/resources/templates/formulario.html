@@ -1,0 +1,72 @@
+<html>
+<head th:replace="~{base :: head}">
+</head>
+<body>
+	<header>
+		<div th:replace="~{base :: logo}"></div>
+	</header>
+
+	<section>
+		<div class="container" style="width: 40%">
+			<div th:replace="~{base :: titulo('Novo País')}"></div>
+		</div>
+	</section>	
+	
+	<section>
+		<div class="container" style="width: 40%">
+			<div class="card">
+				<form th:object="${requisicaoNovoPais}" class="card-body" action="/pais/novo" method="POST">
+					<div class="mb-3">
+						<label for="nome" class="form-label">Nome</label> 
+						<input name="nome" th:field="*{nome}" th:errorclass="is-invalid" class="form-control">
+						<div class="form-text">Informe o nome do país</div>
+						<div class="invalid-feedback" th:errors="*{nome}"></div>
+					</div>
+					<div class="mb-3">
+						<label for="regime" class="form-label">Regime</label> 
+						<input name="regime" th:field="*{regime}" th:errorclass="is-invalid" class="form-control">
+						<div class="form-text">Informe o regime do país</div>
+						<div class="invalid-feedback" th:errors="*{regime}"></div>
+					</div>
+					<div class="mb-3">
+						<label for="governo" class="label-control">Governo</label>
+						<input name="governo" th:field="*{governo}" th:errorclass="is-invalid" class="form-control">
+						<div class="form-text">Informe o governo do país</div>
+						<div class="invalid-feedback" th:errors="*{governo}"></div>
+					</div>
+					<div class="mb-3">
+						<label for="populacao" class="form-label">População</label>
+						<input name="populacao" th:field="*{populacao}" th:errorclass="is-invalid" class="form-control">
+						<div class="form-text">Informa a quantidade de população do país</div>
+						<div class="invalid-feedback" th:errors="*{populacao}"></div>
+					</div>
+					<div class="mb-3">
+						<label for="area" class="form-label">Area</label>
+						<input name="area" th:field="*{area}" th:errorclass="is-invalid" class="form-control">
+						<div class="form-text">Informe a area do país</div>
+						<div class="invalid-feedback" th:errors="*{area}"></div>
+					</div>
+					<div class="mb-3">
+						<label for="continente" class="form-label">Continente</label>
+						<input name="continente" th:field="*{continente}" th:errorclass="is-invalid" class="form-control">
+						<div class="form-text">Informe o continente em que o país se encontra</div>
+						<div class="invalid-feedback" th:errors="*{continente}"></div>
+					</div>
+					<div class="mb-4">
+						<label for="imagem" class="form-label">Imagem do Mapa</label> 
+						<input name="imagem" th:field="*{imagem}" th:errorclass="is-invalid" class="form-control">
+						<div class="form-text">Informe o link da imagem do mapa do país</div>
+						<div class="invalid-feedback" th:errors="*{imagem}"></div>
+					</div>
+					<button type="submit" class="btn btn-success">Cadastrar</button>
+					<a type="button" href="/home" class="btn btn-secondary">Cancelar</a>
+				</form>
+			</div>
+		</div>
+	</section>
+	
+	<footer>
+		<div th:replace="~{base :: rodape}"></div>
+	</footer>
+</body>
+</html>

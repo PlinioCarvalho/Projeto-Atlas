@@ -1,0 +1,47 @@
+<html>
+<head th:replace="~{base :: head}">
+</head>
+<body>
+	<header>
+		<div th:replace="~{base :: logo}"></div>
+	</header>
+
+	<section class="container">
+		<div th:replace="~{base :: titulo('Países da Asia')}"></div>
+	</section>
+
+	<section>
+		<div class="container">
+			<div class="card mb-3" th:each="pais : ${paises}">
+				<div class="card-body">
+					<h4 class="alert alert-success h4" th:text="${pais.nome}"></h4>
+					<div class="row">
+						<div class="col-12 col-sm-4">
+							<img class="img-thumbnail" th:src="${pais.imagem}" />
+						</div>
+						<div class="col-12 col-sm-8">
+							<div class="row">
+								<b class="col-sm-7 fs-5">Regime: <span class="fs-5" th:text="${pais.regime}"></span></b>
+								<b class="col-sm-5 fs-5">Governo: <span class="fs-5" th:text="${pais.governo}"></span></b>
+								<b class="col-sm-7 fs-5">População <span class="fs-5" th:text="${#numbers.formatInteger(pais.populacao,3,'POINT')}"></span></b>
+								<b class="col-sm-5 fs-5">Area: <span class="fs-5" th:text="${#numbers.formatInteger(pais.area,3,'POINT')}"></span></b>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="container">
+			<a href="/pais/formulario" type="button" class="btn btn-success">Novo</a>
+			<a href="/home" type="button" class="btn btn-secondary">Home</a>
+		</div>
+	</section>
+
+	<footer>
+		<div th:replace="~{base :: rodape}"></div>
+	</footer>
+</body>
+</html>
